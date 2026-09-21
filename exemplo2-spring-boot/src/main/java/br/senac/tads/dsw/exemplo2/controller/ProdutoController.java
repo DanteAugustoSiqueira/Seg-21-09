@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import br.senac.tads.dsw.exemplo2.model.Produto;
 import br.senac.tads.dsw.exemplo2.repository.ProdutoRepository;
+import jakarta.validation.Valid;
+
 import java.util.List;
 import java.util.Optional;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +34,7 @@ public class ProdutoController {
     // A anotação @PostMapping mapeia requisições HTTP do tipo POST.
     // Utilizado convencionalmente para criação de novos registros.
     @PostMapping
-    public ResponseEntity<Produto> criarProduto(@RequestBody Produto produto) {
+    public ResponseEntity<Produto> criarProduto(@RequestBody @Valid Produto produto) {
         // O método repository.save() executa internamente um INSERT no
         // banco H2 e retorna o objeto persistido contendo o ID gerado pelo banco.
         Produto produtoSalvo = repository.save(produto);
@@ -75,7 +77,7 @@ public class ProdutoController {
 
     // Mapeia a requisição HTTP PUT para a URL /api/produtos/{id}
     @PutMapping("/{id}")
-    public ResponseEntity<Produto> atualizarProduto(@PathVariable Long id, @RequestBody Produto produtoAtualizado) {
+    public ResponseEntity<Produto> atualizarProduto(@PathVariable Long id, @RequestBody @Valid Produto produtoAtualizado) {
         // 1. Primeiro passo: Verificar se o registro que queremos alterar realmente existe no banco.
         Optional<Produto> produtoBuscado = repository.findById(id);
 
