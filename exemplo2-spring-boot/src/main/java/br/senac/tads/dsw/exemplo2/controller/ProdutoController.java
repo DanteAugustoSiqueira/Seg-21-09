@@ -13,7 +13,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import br.senac.tads.dsw.exemplo2.model.Produto;
 import br.senac.tads.dsw.exemplo2.repository.ProdutoRepository;
 import jakarta.validation.Valid;
-
 import java.util.List;
 import java.util.Optional;
 import org.springframework.web.bind.annotation.GetMapping;
