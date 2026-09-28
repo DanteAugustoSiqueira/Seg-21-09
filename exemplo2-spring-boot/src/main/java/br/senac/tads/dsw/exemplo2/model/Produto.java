@@ -5,14 +5,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+// import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 // A anotação @Entity indica ao Spring e ao Hibernate que esta classe é
 // uma tabela no banco de dados H2.
 @Entity
-public class Avaliacao {
+public class Produto {
     // A anotação @Id indica que este atributo é a Chave Primária(Primary Key) da tabela.
     @Id
     // A anotação @GeneratedValue define que o banco de dados será responsável por 
@@ -21,20 +21,19 @@ public class Avaliacao {
     private Long id;
 
     @NotBlank
-    private String titulo;
+    private String nome;
 
-    // Validações adequadas para o contexto de uma avaliação (ex: nota de 0 a 10)
-    @Min(0)
-    @Max(10)
-    private Integer nota;
+    // @NotNull
+    @Positive
+    private Double preco;
 
     // Construtor padrão vazio (Exigência da especificação JPA)
-    public Avaliacao() {}
+    public Produto() {}
 
     // Construtor com parâmetros para facilitar a criação de objetos
-    public Avaliacao(String titulo, Integer nota) {
-        this.titulo = titulo;
-        this.nota = nota;
+    public Produto(String nome, Double preco) {
+        this.nome = nome;
+        this.preco = preco;
     }
 
     // Getters e Setters: Métodos públicos para acessar e modificar os
@@ -46,17 +45,17 @@ public class Avaliacao {
         this.id = id;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getNome() {
+        return nome;
     }
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public Integer getNota() {
-        return nota;
+    public Double getPreco() {
+        return preco;
     }
-    public void setNota(Integer nota) {
-        this.nota = nota;
+    public void setPreco(Double preco) {
+        this.preco = preco;
     }
 }
