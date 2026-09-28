@@ -5,8 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Exemplo2SpringBootApplication {
+public class SegAdo2 {
 	public static void main(String[] args) {
-		SpringApplication.run(Exemplo2SpringBootApplication.class, args);
+		SpringApplication.run(SegAdo2.class, args);
 	}
 }
