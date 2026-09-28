@@ -23,9 +23,9 @@ public class Avaliacao {
     @NotBlank
     private String titulo;
 
-    // Validações adequadas para o contexto de uma avaliação (ex: nota de 0 a 10)
-    @Min(0)
-    @Max(10)
+    // Validações adequadas para o contexto de uma avaliação (ex: nota de 1 a 5)
+    @Min(1)
+    @Max(5)
     private Integer nota;
 
     // Construtor padrão vazio (Exigência da especificação JPA)
